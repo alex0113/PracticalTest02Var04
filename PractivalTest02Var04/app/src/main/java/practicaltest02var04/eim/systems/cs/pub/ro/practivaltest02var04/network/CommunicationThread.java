@@ -52,6 +52,8 @@ public class CommunicationThread extends Thread {
             if (data.containsKey(http_address)) {
                 Log.i(Constants.TAG, "[COMMUNICATION THREAD] Getting the information from the cache...");
                 result = data.get(http_address);
+                printWriter.println(result);
+                printWriter.flush();
             } else {
                 Log.i(Constants.TAG, "[COMMUNICATION THREAD] Getting the information from the webservice...");
                 HttpClient httpClient = new DefaultHttpClient();
@@ -65,6 +67,8 @@ public class CommunicationThread extends Thread {
                     return;
                 }
                 printWriter.println(pageSourceCode.toString());
+                Log.d(Constants.TAG, pageSourceCode.toString());
+                serverThread.setData(http_address, pageSourceCode.toString());
                 printWriter.flush();
 
                 }
