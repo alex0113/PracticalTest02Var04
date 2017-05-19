@@ -1,1 +1,2 @@
-# PracticalTest02Var04
+Visarion Alexandru
+341C1
